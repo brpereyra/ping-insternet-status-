@@ -10,9 +10,9 @@ const host = process.env.HOST || "google.com";
 const getFileName = () => `./data/${format(new Date(), "dd-MM-yyyy")}.csv`;
 const formatResult = (result) => ({
   date: format(new Date(), "yyyy-MM-dd HH:mm:ss"),
-  host: result.host,
-  alive: result.alive,
-  time: result.time,
+  host: result.host || "not found",
+  alive: result.alive || false,
+  time: result.time || Infinity,
 });
 
 async function pingHost() {
