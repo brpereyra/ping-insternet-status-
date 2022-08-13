@@ -1,7 +1,25 @@
 {
+  "name": "ping-status",
+  "version": "0.0.1",
+  "description": "Ping status",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": {
+    "name": "Bryan Pereyra",
+    "email": "bryan@beaxbytes.com",
+    "url": "https://beaxbytes.com"
+  },
+  "license": "MIT",
   "dependencies": {
     "cron": "^2.1.0",
     "date-fns": "^2.29.1",
+    "dotenv": "^16.0.1",
     "ping": "^0.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }

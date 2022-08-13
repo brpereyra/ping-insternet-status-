@@ -1,9 +1,11 @@
 const ping = require("ping");
 const cron = require("cron");
 const fs = require("fs");
+const dotenv = require("dotenv");
+dotenv.config();
 const { format } = require("date-fns");
 
-const host = "google.com";
+const host = process.env.HOST || "google.com";
 
 const getFileName = () => `./data/${format(new Date(), "dd-MM-yyyy")}.csv`;
 const formatResult = (result) => ({
@@ -28,5 +30,8 @@ async function pingHost() {
   }
 }
 
-const job = new cron.CronJob("*/10 * * * * *", pingHost);
+const job = new cron.CronJob(
+  `*/${process.env.INTERVAL || 10} * * * * *`,
+  pingHost
+);
 job.start();
